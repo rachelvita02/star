@@ -1,0 +1,191 @@
+/* typography */
+
+@font-face {
+    font-family: "Portrait Regular Trial";
+    src: url(fonts/Portrait-Regular-Trial.otf) format ('opentype');
+    font-weight: normal;
+}
+
+h1{
+    font-family: "Portrait Regular Trial";
+    font-weight: normal;
+    font-size: 15em;
+    text-align: center;
+    padding-top: 5vw;
+}
+
+h1:hover{
+    color: var(--pink);
+}
+
+#title{
+    text-decoration: none;
+}
+
+a:visited{
+    color:black;
+}
+
+h2, h3, p, pre{
+    z-index: 2;
+    position: relative;
+    filter:drop-shadow(5px 5px 8px rgb(27, 27, 31));
+}
+
+p, h2{
+    font-family: "Portrait Regular Trial";
+    font-weight: normal;
+    line-height: 105.44%;
+    color: var(--pink);
+}
+
+p{
+    font-size: 1em;
+}
+
+h2{
+    font-size: 2.3em;
+}
+
+h3, pre{
+    font-family: "Portrait Regular Trial";
+    font-weight: normal;
+    line-height: 105.44%;
+    font-size: 1.5em;
+    color: var(--pink);
+}
+
+div{
+    margin-left: 3vw;
+    margin-right: 3vw;
+    padding-bottom: 20rem;
+    padding-top: 18rem;
+}
+
+
+.ending{
+    padding-top: 21rem;
+    padding-bottom: 8rem;
+}
+
+.start{
+    margin-left: 3vw;
+    margin-right: 3vw;
+    padding-bottom: 20rem;
+    padding-top: 5rem;
+}
+
+.start2{
+    margin-left: 3vw;
+    margin-right: 3vw;
+    padding-bottom: 15rem;
+    padding-top: 10rem;
+}
+
+
+/* colors */
+
+:root{
+    --pink: #bf1a54;
+    --yellow: #D8AC33;
+}
+
+#title{
+    background: radial-gradient(circle, #FFF 0%, #D8AC33 100%);
+}
+
+#gradient-1{
+    background: linear-gradient(to bottom,#181720 44%, #191837 100%);
+    background-repeat: no-repeat;
+}
+
+#gradient-2{
+    background: linear-gradient(to bottom, #191837 18.5%, #191765 100%);
+    background-repeat: no-repeat;
+}
+
+/* star */
+
+.star, .star2 {
+    position: fixed;
+    inset: 0px;
+    max-width: 100vw;
+    max-height: 100dvh;
+    margin: auto;
+    z-index: 1;
+  }
+
+.star{
+    animation: star-scale linear;
+    animation-timeline: scroll();
+}
+
+  @keyframes star-scale {
+    0%{
+        transform: scale(1.3);
+    }
+    50%{
+        filter: drop-shadow(1px 1px 1px white);
+    }
+    100%{
+        transform: scale(0.685);
+        filter: drop-shadow(30px 30px 50px white);
+    }
+}
+
+.star2{
+    animation: star-scale2 linear;
+    animation-timeline: scroll(); 
+}
+
+@keyframes star-scale2 {
+    0%{
+        transform: scale(0.685);
+    }
+    50%{
+        filter: drop-shadow(1px 1px 1px white);
+    }
+    100%{
+        transform: scale(0.07);
+        filter: drop-shadow(20px 20px 40px white);
+    }
+}
+
+
+/* responsive */
+
+@media screen and (min-width: 700px) {
+    h2{
+        font-size: 3em;
+    }
+    h3, pre{
+        font-size: 2em;
+        line-height: 105.44%;
+    }
+    p{ 
+        font-size: 1.8em;
+    }
+    .ending{
+        padding-top: 28rem;
+        padding-bottom: 4rem;
+    }
+}
+
+@media screen and (min-width: 950px) {
+    div{
+        padding-top: 22rem;
+        padding-bottom: 20rem;
+    }
+}
+
+/* star background */
+
+#stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2; 
+    pointer-events: none;
+}
