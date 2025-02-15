@@ -41,25 +41,25 @@ p, h2{
 }
 
 p{
-    font-size: 1em;
+    font-size: 1.3em;
 }
 
 h2{
-    font-size: 2.3em;
+    font-size: 2.5em;
 }
 
 h3, pre{
     font-family: "Portrait Regular Trial";
     font-weight: normal;
     line-height: 105.44%;
-    font-size: 1.5em;
+    font-size: 1.8em;
     color: var(--pink);
 }
 
 div{
     margin-left: 3vw;
     margin-right: 3vw;
-    padding-bottom: 20rem;
+    padding-bottom: 30rem;
     padding-top: 18rem;
 }
 
@@ -175,7 +175,7 @@ div{
 @media screen and (min-width: 950px) {
     div{
         padding-top: 22rem;
-        padding-bottom: 20rem;
+        padding-bottom: 35rem;
     }
 }
 
