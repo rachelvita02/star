@@ -7,29 +7,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!supportsScrollTimeline) {
         console.warn("Scroll-driven animations not supported. Using JavaScript fallback.");
-        
+        window.addEventListener("scroll", handleScroll);
+
         if (star) {
-            animateStar(star, 1.3, 0.685);
+            star.style.transform = "scale(1.3)"; // Initial state
         }
         if (star2) {
-            animateStar(star2, 0.685, 0.07);
+            star2.style.transform = "scale(0.685)"; // Initial state
         }
     }
 });
 
-function animateStar(element, startScale, endScale) {
-    const observer = new IntersectionObserver(
-        ([entry]) => {
-            if (entry.isIntersecting) {
-                element.style.transition = "transform 1s ease-in-out, filter 1s ease-in-out";
-                element.style.transform = `scale(${endScale})`;
-                element.style.filter = "drop-shadow(30px 30px 50px white)";
-            } else {
-                element.style.transform = `scale(${startScale})`;
-                element.style.filter = "drop-shadow(1px 1px 1px white)";
-            }
-        },
-        { threshold: 0.5 }
-    );
-    observer.observe(element);
+function handleScroll() {
+    const star = document.querySelector(".star");
+    const star2 = document.querySelector(".star2");
+
+    if (star) {
+        updateScale(star, 1.3, 0.685);
+    }
+    if (star2) {
+        updateScale(star2, 0.685, 0.07);
+    }
+}
+
+function updateScale(element, startScale, endScale) {
+    const scrollPosition = window.scrollY;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollRatio = Math.min(scrollPosition / maxScroll, 1); // Normalize to [0,1]
+
+    const newScale = startScale - (startScale - endScale) * scrollRatio;
+    const newBlur = 1 + scrollRatio * 30; // Adjust blur dynamically
+
+    element.style.transform = `scale(${newScale})`;
+    element.style.filter = `drop-shadow(${newBlur}px ${newBlur}px ${newBlur}px white)`;
 }
